@@ -12,7 +12,7 @@ export default function ScrollyVideo({ src, children }: ScrollyVideoProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const targetTimeRef = useRef(0);
-  const seekingRef = useRef(false);
+  const frameRequestRef = useRef<number | null>(null);
 
   // Scroll progress for the container
   const { scrollYProgress } = useScroll({
@@ -22,52 +22,50 @@ export default function ScrollyVideo({ src, children }: ScrollyVideoProps) {
 
   // Smooth out the scroll value
   const springScroll = useSpring(scrollYProgress, {
-    damping: 50,
-    stiffness: 400,
+    damping: 42,
+    stiffness: 260,
   });
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Seeking for every scroll update queues decoder work, which makes a
-    // scroll-controlled video stutter. Keep only the newest requested frame
-    // and wait for the current seek to finish before requesting the next one.
-    const seekToTarget = () => {
-      if (seekingRef.current || !Number.isFinite(video.duration) || video.duration <= 0) return;
+    // Apply only the latest scroll position once per animation frame. Waiting
+    // for a seeked event makes touch scrolling pause between decoded frames.
+    const updateVideoFrame = () => {
+      frameRequestRef.current = null;
+      if (Number.isFinite(video.duration) && video.duration > 0) {
+        const nextTime = Math.max(0, Math.min(targetTimeRef.current, video.duration));
+        if (Math.abs(video.currentTime - nextTime) >= 0.004) {
+          video.currentTime = nextTime;
+        }
+      }
+    };
 
-      const nextTime = Math.max(0, Math.min(targetTimeRef.current, video.duration));
-      if (Math.abs(video.currentTime - nextTime) < 0.01) return;
-
-      seekingRef.current = true;
-      if (typeof video.fastSeek === "function") {
-        video.fastSeek(nextTime);
-      } else {
-        video.currentTime = nextTime;
+    const scheduleVideoFrame = () => {
+      if (frameRequestRef.current === null) {
+        frameRequestRef.current = requestAnimationFrame(updateVideoFrame);
       }
     };
 
     const unsubscribe = springScroll.on("change", (progress) => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
       targetTimeRef.current = progress * video.duration;
-      seekToTarget();
+      scheduleVideoFrame();
     });
 
-    const handleSeeked = () => {
-      seekingRef.current = false;
-      seekToTarget();
-    };
     const handleLoadedMetadata = () => {
       targetTimeRef.current = springScroll.get() * video.duration;
-      seekToTarget();
+      scheduleVideoFrame();
     };
 
-    video.addEventListener("seeked", handleSeeked);
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
     return () => {
       unsubscribe();
-      video.removeEventListener("seeked", handleSeeked);
       video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+      if (frameRequestRef.current !== null) {
+        cancelAnimationFrame(frameRequestRef.current);
+      }
     };
   }, [springScroll]);
 
