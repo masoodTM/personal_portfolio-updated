@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <section className="relative z-20 bg-[#0a0a0a] py-32 px-4 md:px-12 overflow-hidden" id="contact">
+    <section className="relative z-20 bg-[#0a0a0a] py-20 sm:py-32 px-4 md:px-12 overflow-hidden" id="contact">
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px]" />
@@ -49,7 +49,7 @@ export default function Contact() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-2 lg:gap-16">
           
           {/* Left Column: Info & Socials */}
           <motion.div
@@ -57,7 +57,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight">
               Let's work <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-500">
                 together.
@@ -80,7 +80,7 @@ export default function Contact() {
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 </div>
-                <span className="text-lg">masoodnawaz21@gmail.com</span>
+                <span className="text-base sm:text-lg break-all">masoodnawaz21@gmail.com</span>
               </a>
 
               <a href="tel:+919944410994" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
@@ -94,7 +94,7 @@ export default function Contact() {
                 <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                 </div>
-                <span className="text-lg">Melvisharam, Tamil Nadu, India</span>
+                <span className="text-base sm:text-lg">Melvisharam, Tamil Nadu, India</span>
               </div>
             </div>
           </motion.div>
@@ -104,7 +104,7 @@ export default function Contact() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-sm"
+            className="bg-white/5 border border-white/10 rounded-3xl p-5 sm:p-8 md:p-10 backdrop-blur-sm"
           >
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

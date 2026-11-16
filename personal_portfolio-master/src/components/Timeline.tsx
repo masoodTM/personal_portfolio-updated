@@ -31,7 +31,7 @@ export default function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="relative z-20 bg-[#0a0a0a] min-h-screen py-32 px-4 md:px-12 overflow-hidden" id="journey">
+    <section className="relative z-20 bg-[#0a0a0a] min-h-screen py-20 sm:py-32 px-4 md:px-12 overflow-hidden" id="journey">
        {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-20%] right-[20%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]" />
@@ -46,7 +46,7 @@ export default function Timeline() {
            transition={{ duration: 0.8, ease: "easeOut" }}
            className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
              My <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400">Experience</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
@@ -92,7 +92,7 @@ function TimelineItem({ item, index }: { item: any; index: number }) {
 
       {/* Content Card */}
       <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:text-left"}`}>
-        <div className="group relative p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
+        <div className="group relative p-4 sm:p-6 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm hover:bg-white/10 transition-colors duration-300">
           <div className={`flex flex-col ${isEven ? "md:items-end" : "md:items-start"} mb-2`}>
              <span className="text-xs text-blue-400 font-mono border border-blue-500/30 px-2 py-1 rounded-full bg-blue-500/10 mb-2 w-fit">
               {item.year}

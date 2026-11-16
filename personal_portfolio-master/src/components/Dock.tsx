@@ -55,7 +55,7 @@ export default function Dock() {
     <motion.div
       onMouseMove={(e) => mouseX.set(e.pageX)}
       onMouseLeave={() => mouseX.set(Infinity)}
-      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex h-16 items-end gap-4 rounded-2xl border border-white/10 bg-white/5 px-4 pb-3 backdrop-blur-md"
+      className="fixed bottom-[calc(0.75rem+env(safe-area-inset-bottom))] sm:bottom-8 left-1/2 -translate-x-1/2 z-50 flex w-max max-w-[calc(100vw-1rem)] h-16 items-end gap-2 sm:gap-4 overflow-x-auto rounded-2xl border border-white/10 bg-white/5 px-2 sm:px-4 pb-3 backdrop-blur-md"
     >
       {DOCK_ITEMS.map((item) => (
         <DockIcon key={item.id} mouseX={mouseX} item={item} />
@@ -86,12 +86,12 @@ function DockIcon({
       <motion.div
         ref={ref}
         style={{ width }}
-        className="aspect-square w-10 rounded-full bg-gray-700/50 border border-white/10 flex items-center justify-center hover:bg-gray-600/80 transition-colors group relative"
+        className="aspect-square w-10 shrink-0 rounded-full bg-gray-700/50 border border-white/10 flex items-center justify-center hover:bg-gray-600/80 transition-colors group relative"
       >
          <item.icon className="w-1/2 h-1/2 text-gray-200 group-hover:text-white" />
          
          {/* Tooltip */}
-         <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-white/10">
+         <span className="pointer-events-none absolute -top-10 left-1/2 hidden -translate-x-1/2 whitespace-nowrap rounded border border-white/10 bg-gray-900 px-2 py-1 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100 sm:block">
             {item.label}
          </span>
       </motion.div>

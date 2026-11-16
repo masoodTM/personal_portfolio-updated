@@ -72,8 +72,8 @@ export default function ScrollyVideo({ src, children }: ScrollyVideoProps) {
   }, [springScroll]);
 
   return (
-    <div ref={containerRef} className="relative h-[400vh]">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
+    <div ref={containerRef} className="relative h-[260vh] md:h-[400vh]">
+      <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         <video
           ref={videoRef}
           src={src}

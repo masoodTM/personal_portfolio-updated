@@ -16,7 +16,7 @@ const ROW_COLORS = [
 
 export default function Skills() {
   return (
-    <section className="relative z-20 bg-[#0a0a0a] py-32 px-4 md:px-12 overflow-hidden" id="skills">
+    <section className="relative z-20 bg-[#0a0a0a] py-20 sm:py-32 px-4 md:px-12 overflow-hidden" id="skills">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[20%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]" />
@@ -28,7 +28,7 @@ export default function Skills() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
         >
           My <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400">Skills</span>
         </motion.h2>
@@ -60,7 +60,7 @@ export default function Skills() {
                 {[...row, ...row, ...row, ...row].map((skill, i) => (
                   <span
                     key={i}
-                    className={`shrink-0 px-6 py-3 rounded-full bg-linear-to-r border backdrop-blur-md text-base md:text-lg font-medium whitespace-nowrap ${ROW_COLORS[rowIndex % ROW_COLORS.length]}`}
+                    className={`shrink-0 px-4 sm:px-6 py-3 rounded-full bg-linear-to-r border backdrop-blur-md text-sm sm:text-base md:text-lg font-medium whitespace-nowrap ${ROW_COLORS[rowIndex % ROW_COLORS.length]}`}
                   >
                     {skill}
                   </span>

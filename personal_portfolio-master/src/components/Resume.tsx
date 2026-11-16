@@ -37,7 +37,7 @@ export default function Resume() {
     <>
       <section
         id="resume"
-        className="relative isolate overflow-hidden bg-[#090b14] px-4 py-28 md:px-12 md:py-36"
+        className="relative isolate overflow-hidden bg-[#090b14] px-4 py-20 sm:py-28 md:px-12 md:py-36"
         aria-labelledby="resume-heading"
       >
         <div className="resume-aurora resume-aurora-blue" aria-hidden="true" />
@@ -83,7 +83,7 @@ export default function Resume() {
           </p>
           <h2
             id="resume-heading"
-            className="mb-5 text-4xl font-bold tracking-tight text-white md:text-6xl"
+            className="mb-5 text-3xl sm:text-4xl font-bold tracking-tight text-white md:text-6xl"
           >
             Building Skills Today.
             <span className="block bg-linear-to-r from-blue-300 via-cyan-200 to-purple-400 bg-clip-text text-transparent">
@@ -116,7 +116,7 @@ export default function Resume() {
               data="/Masood_Nawaz_Resume-1.pdf"
               type="application/pdf"
               aria-label="Masood Nawaz T resume"
-              className="h-[480px] w-full bg-white md:h-[620px]"
+              className="h-[420px] w-full bg-white sm:h-[480px] md:h-[620px]"
             >
               <div className="flex h-full flex-col items-center justify-center gap-4 bg-slate-100 p-6 text-center text-slate-800">
                 <p>Preview unavailable in this browser.</p>
@@ -141,7 +141,7 @@ export default function Resume() {
             <button
               type="button"
               onClick={() => setIsAboutOpen(true)}
-              className="resume-button resume-button-secondary"
+              className="resume-button w-full sm:w-auto resume-button-secondary"
               aria-haspopup="dialog"
             >
               <span>About Me</span>
@@ -150,7 +150,7 @@ export default function Resume() {
             <a
               href="/Masood_Nawaz_Resume-1.pdf"
               download="Masood_Nawaz_Resume.pdf"
-              className="resume-button resume-button-primary"
+              className="resume-button w-full sm:w-auto resume-button-primary"
             >
               <span>Download Resume</span>
               <span aria-hidden="true">↓</span>
@@ -175,7 +175,7 @@ export default function Resume() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="about-me-title"
-              className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/15 bg-[#111522]/95 p-7 text-left shadow-2xl shadow-blue-950/40 md:p-10"
+              className="relative max-h-[90svh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/15 bg-[#111522]/95 p-6 text-left shadow-2xl shadow-blue-950/40 sm:p-7 md:p-10"
               initial={{ opacity: 0, y: 20, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 10, scale: 0.97 }}

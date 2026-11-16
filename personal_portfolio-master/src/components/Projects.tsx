@@ -144,7 +144,7 @@ export default function Projects() {
   const hasMore = visibleCount < projects.length;
 
   return (
-    <section className="relative z-20 bg-[#0a0a0a] min-h-screen py-32 px-4 md:px-12 overflow-hidden" id="projects">
+    <section className="relative z-20 bg-[#0a0a0a] min-h-screen py-20 sm:py-32 px-4 md:px-12 overflow-hidden" id="projects">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]" />
@@ -158,7 +158,7 @@ export default function Projects() {
            transition={{ duration: 0.8, ease: "easeOut" }}
            className="mb-16"
         >
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
             My <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl leading-relaxed">
@@ -202,7 +202,7 @@ export default function Projects() {
                         {/* Noise */}
                         <div className="absolute inset-0 opacity-[0.05] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
-                        <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                        <div className="absolute inset-0 p-4 sm:p-8 flex flex-col justify-between z-10">
                             <div className="flex justify-between items-start">
                                  <span className="inline-block px-3 py-1 rounded-full bg-black/40 border border-white/10 text-xs font-mono text-blue-300 backdrop-blur-md">
                                     {project.category}
@@ -220,7 +220,7 @@ export default function Projects() {
                                     {project.description}
                                 </p>
                                 
-                                <div className="flex flex-wrap gap-2 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                                <div className="mt-4 flex translate-y-0 flex-wrap gap-2 opacity-100 transition-all duration-300 sm:translate-y-4 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                                     {project.techStack.slice(0, 3).map(t => (
                                         <span key={t} className="text-[10px] uppercase tracking-wider text-white/80 bg-black/40 px-2 py-1 rounded backdrop-blur-sm border border-white/5">
                                             {t}

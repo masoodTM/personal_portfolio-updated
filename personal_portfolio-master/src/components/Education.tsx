@@ -19,19 +19,19 @@ const EDUCATION = [
 
 export default function Education() {
   return (
-    <section className="relative z-20 bg-[#0a0a0a] py-32 overflow-hidden" id="education">
+    <section className="relative z-20 bg-[#0a0a0a] py-20 sm:py-32 overflow-hidden" id="education">
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px]" />
         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px]" />
       </div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 text-center relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight"
         >
           My <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-purple-400">Education</span>
         </motion.h2>
@@ -59,7 +59,7 @@ export default function Education() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-8 py-6 text-left ${
+              className={`grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4 px-4 sm:px-8 py-6 text-left ${
                 index !== EDUCATION.length - 1 ? "border-b border-white/10" : ""
               } hover:bg-white/5 transition-colors`}
             >
